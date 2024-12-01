@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tabBarVisible = true
+    // @State private var changeTheme: Bool = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        TabView{
+            Home()
+                .tabItem {
+                    Image(systemName: "house")
+                }
+            EditProfile()
+                .tabItem {
+                    Image(systemName: "chart.bar.xaxis")
+                }
+            
         }
-        .padding()
+        .zIndex(0)
+        .edgesIgnoringSafeArea([.bottom])
+        .tint(.primary)
+        
+        
     }
+    
 }
 
 #Preview {
     ContentView()
 }
+
+
